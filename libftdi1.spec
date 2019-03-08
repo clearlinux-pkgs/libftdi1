@@ -6,7 +6,7 @@
 #
 Name     : libftdi1
 Version  : 1.4
-Release  : 1
+Release  : 2
 URL      : https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2
 Source0  : https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2
 Source99 : https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2.sig
@@ -20,6 +20,7 @@ BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : doxygen
 BuildRequires : pkg-config
+BuildRequires : pkgconfig(libconfuse)
 BuildRequires : pkgconfig(libusb-1.0)
 BuildRequires : python3-dev
 
@@ -65,6 +66,14 @@ Requires: libftdi1 = %{version}-%{release}
 dev components for the libftdi1 package.
 
 
+%package doc
+Summary: doc components for the libftdi1 package.
+Group: Documentation
+
+%description doc
+doc components for the libftdi1 package.
+
+
 %package lib
 Summary: lib components for the libftdi1 package.
 Group: Libraries
@@ -90,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552060220
+export SOURCE_DATE_EPOCH=1552062817
 mkdir -p clr-build
 pushd clr-build
 export LDFLAGS="${LDFLAGS} -fno-lto"
@@ -99,12 +108,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552060220
+export SOURCE_DATE_EPOCH=1552062817
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libftdi1
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libftdi1/COPYING-CMAKE-SCRIPTS
 cp COPYING.GPL %{buildroot}/usr/share/package-licenses/libftdi1/COPYING.GPL
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libftdi1/COPYING.LIB
+cp LICENSE %{buildroot}/usr/share/package-licenses/libftdi1/LICENSE
 pushd clr-build
 %make_install
 popd
@@ -114,6 +124,7 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/ftdi_eeprom
 /usr/bin/libftdi1-config
 
 %files dev
@@ -128,6 +139,10 @@ popd
 /usr/lib64/pkgconfig/libftdi1.pc
 /usr/lib64/pkgconfig/libftdipp1.pc
 
+%files doc
+%defattr(0644,root,root,0755)
+%doc /usr/share/doc/libftdi1/*
+
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libftdi1.so.2
@@ -140,3 +155,4 @@ popd
 /usr/share/package-licenses/libftdi1/COPYING-CMAKE-SCRIPTS
 /usr/share/package-licenses/libftdi1/COPYING.GPL
 /usr/share/package-licenses/libftdi1/COPYING.LIB
+/usr/share/package-licenses/libftdi1/LICENSE
