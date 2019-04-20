@@ -6,7 +6,7 @@
 #
 Name     : libftdi1
 Version  : 1.4
-Release  : 2
+Release  : 3
 URL      : https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2
 Source0  : https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2
 Source99 : https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2.sig
