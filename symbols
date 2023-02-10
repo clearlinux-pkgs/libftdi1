@@ -42,7 +42,11 @@ libftdi1.so.2:ftdi_set_usbdev
 libftdi1.so.2:ftdi_setdtr
 libftdi1.so.2:ftdi_setdtr_rts
 libftdi1.so.2:ftdi_setflowctrl
+libftdi1.so.2:ftdi_setflowctrl_xonxoff
 libftdi1.so.2:ftdi_setrts
+libftdi1.so.2:ftdi_tciflush
+libftdi1.so.2:ftdi_tcioflush
+libftdi1.so.2:ftdi_tcoflush
 libftdi1.so.2:ftdi_transfer_data_cancel
 libftdi1.so.2:ftdi_transfer_data_done
 libftdi1.so.2:ftdi_usb_close
@@ -134,6 +138,7 @@ libftdipp1.so.3:_ZN4Ftdi7Context7is_openEv
 libftdipp1.so.3:_ZN4Ftdi7Context7latencyEv
 libftdipp1.so.3:_ZN4Ftdi7Context7set_dtrEb
 libftdipp1.so.3:_ZN4Ftdi7Context7set_rtsEb
+libftdipp1.so.3:_ZN4Ftdi7Context7tcflushEi
 libftdipp1.so.3:_ZN4Ftdi7Context9read_pinsEPh
 libftdipp1.so.3:_ZN4Ftdi7ContextC1Ev
 libftdipp1.so.3:_ZN4Ftdi7ContextC2Ev
